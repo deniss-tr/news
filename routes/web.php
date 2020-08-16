@@ -17,5 +17,4 @@ use Illuminate\Support\Facades\Route;
 Auth::routes();
 
 Route::get('/', 'HomeController@list')->name('list');
-// Route::get('/register', 'PageController@register')->name('register');
-// Route::post('/register', 'PageController@addUser');
+Route::post('/ajax', 'PageController@loginCheck');

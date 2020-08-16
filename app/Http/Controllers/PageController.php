@@ -6,13 +6,18 @@ use Illuminate\Http\Request;
 
 class PageController extends Controller
 {
-    // public function register()
-    // {
-    //     return view('register');
-    // }
-    // public function addUser()
-    // { 
-    //     return view('register');
-    // }
+    public function loginCheck(Request $req)
+    {
+        $name = $req->input('text');
+        $user = \DB::table('users')
+        ->where('name', '=', $name)
+        ->get();
+        if(count($user) > 0) {
+            return response()->json(true);
+        }
+        return response()->json(false);
+        
+    }
+
 
 }
